@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P·E·N·D house – Brand Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #0B0B0E;
+    --red:       #7A1420;
+    --red-bright:#9E1B2C;
+    --red-deep:  #56101A;
+    --cream:     #EDE6D6;
+    --cream-dim: #C7BFAE;
+    --brass:     #B8A574;
+    --grey:      #7a7a82;
+    --line:      #22222a;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--ink); color: var(--cream); font-family: 'Mulish', sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E"); opacity: 0.025; pointer-events: none; z-index: 0; }
+  .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 24px; overflow: hidden; }
+  .hero-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); width: 600px; height: 600px; background: radial-gradient(ellipse at center, rgba(122,20,32,0.18) 0%, transparent 70%); pointer-events: none; }
+  .hero-keyhole { width: 48px; height: 77px; margin-bottom: 36px; opacity: 0; animation: fadeUp 1s ease 0.2s forwards; }
+  .cover-logo { text-align: center; line-height: 1; opacity: 0; animation: fadeUp 1s ease 0.5s forwards; }
+  .lmain { font-family: 'Raleway', sans-serif; font-size: clamp(48px, 8vw, 80px); font-weight: 400; letter-spacing: 0.22em; color: var(--cream); }
+  .dot { display: inline-block; width: 0.1em; height: 0.1em; border-radius: 50%; background: var(--red-bright); color: transparent; vertical-align: baseline; position: relative; top: 0.45em; margin: 0 0.12em; }
+  .cover-house { display: block; font-family: 'Raleway', sans-serif; font-size: clamp(11px, 1.5vw, 14px); letter-spacing: 0.55em; font-weight: 300; color: var(--brass); text-align: center; margin-top: 14px; padding-left: 0.55em; }
+  .hero-label { margin-top: 48px; font-family: 'Mulish', sans-serif; font-size: 10px; letter-spacing: 0.38em; text-transform: uppercase; color: var(--grey); opacity: 0; animation: fadeUp 1s ease 0.8s forwards; }
+  .hero-divider { width: 1px; height: 60px; background: linear-gradient(to bottom, transparent, var(--line), transparent); margin-top: 56px; opacity: 0; animation: fadeIn 1.2s ease 1.2s forwards; }
+  .scroll-hint { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 24px; opacity: 0; animation: fadeIn 1s ease 1.6s forwards; }
+  .scroll-hint span { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--grey); }
+  .scroll-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--red-bright); animation: pulse 2s ease infinite; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes pulse { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.4); } }
+  .hub { position: relative; z-index: 1; max-width: 1160px; margin: 0 auto; padding: 0 24px 80px; }
+  .hub-eyebrow { font-size: 10px; letter-spacing: 0.38em; text-transform: uppercase; color: var(--grey); text-align: center; margin-bottom: 64px; }
+  .hub-section { margin-bottom: 4px; }
+  .section-label { font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--grey); padding: 0 0 16px 2px; display: flex; align-items: center; gap: 16px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 2px; }
+  @media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .grid { grid-template-columns: 1fr; } }
+  .card { position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 40px 36px 36px; background: rgba(255,255,255,0.018); border: 1px solid var(--line); text-decoration: none; color: inherit; overflow: hidden; cursor: pointer; transition: background 0.35s ease, border-color 0.35s ease; min-height: 280px; }
+  .card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(158,27,44,0.07) 0%, transparent 60%); opacity: 0; transition: opacity 0.35s ease; }
+  .card:hover { background: rgba(255,255,255,0.035); border-color: rgba(184,165,116,0.25); }
+  .card:hover::before { opacity: 1; }
+  .card.kit::before { background: linear-gradient(135deg, rgba(184,165,116,0.08) 0%, transparent 60%); }
+  .card.kit:hover { border-color: rgba(184,165,116,0.4); }
+  .card-num { font-family: 'Mulish', sans-serif; font-size: 10px; letter-spacing: 0.3em; color: var(--grey); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+  .card-num::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .card-kh { width: 20px; height: 32px; opacity: 0.35; transition: opacity 0.35s ease; flex-shrink: 0; }
+  .card:hover .card-kh { opacity: 0.7; }
+  .card-tag { font-family: 'Mulish', sans-serif; font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--red-bright); margin-bottom: 10px; }
+  .card.kit .card-tag { color: var(--brass); }
+  .card-title { font-family: 'Raleway', sans-serif; font-size: clamp(20px, 2.5vw, 26px); font-weight: 400; color: var(--cream); line-height: 1.25; margin-bottom: 16px; }
+  .card-desc { font-family: 'Mulish', sans-serif; font-size: 13px; color: var(--cream-dim); line-height: 1.7; flex: 1; }
+  .card-action { display: flex; align-items: center; gap: 10px; margin-top: 32px; font-family: 'Mulish', sans-serif; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); transition: gap 0.3s ease; }
+  .card:hover .card-action { gap: 16px; }
+  .card-action-line { width: 24px; height: 1px; background: var(--brass); transition: width 0.3s ease; }
+  .card:hover .card-action-line { width: 36px; }
+  .card.wide { grid-column: 1 / -1; flex-direction: row; align-items: center; min-height: 140px; gap: 48px; padding: 36px 40px; }
+  @media (max-width: 640px) { .card.wide { flex-direction: column; align-items: flex-start; gap: 24px; min-height: auto; } }
+  .card.wide .card-body { flex: 1; }
+  .card.wide .card-num { margin-bottom: 0; }
+  .card.wide .card-title { font-size: clamp(18px, 2vw, 22px); margin-bottom: 6px; }
+  .card.wide .card-desc { font-size: 12px; }
+  .hub-separator { height: 48px; }
+  .foot { position: relative; z-index: 1; border-top: 1px solid var(--line); padding: 48px 24px; display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .foot-logo { font-family: 'Raleway', sans-serif; font-size: 18px; font-weight: 400; letter-spacing: 0.22em; color: var(--cream); line-height: 1; }
+  .foot-sep { width: 1px; height: 20px; background: var(--line); }
+  .foot-note { font-family: 'Mulish', sans-serif; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--grey); }
+</style>
+</head>
+<body>
+<svg class="svg-defs" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="kh" viewBox="0 0 40 64"><path d="M20 6 C13.4 6 8 11.4 8 18 C8 22.4 10.4 26.3 14 28.4 L9 58 L31 58 L26 28.4 C29.6 26.3 32 22.4 32 18 C32 11.4 26.6 6 20 6 Z" fill="none" stroke="#9E1B2C" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="kh-brass" viewBox="0 0 40 64"><path d="M20 6 C13.4 6 8 11.4 8 18 C8 22.4 10.4 26.3 14 28.4 L9 58 L31 58 L26 28.4 C29.6 26.3 32 22.4 32 18 C32 11.4 26.6 6 20 6 Z" fill="none" stroke="#B8A574" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <svg class="hero-keyhole" viewBox="0 0 40 64"><use href="#kh"/></svg>
+  <div class="cover-logo">
+    <div class="lmain">P<span class="dot">.</span>E<span class="dot">.</span>N<span class="dot">.</span>D</div>
+    <span class="cover-house">house</span>
+  </div>
+  <p class="hero-label">Brand System · 2025</p>
+  <div class="hero-divider"></div>
+  <div class="scroll-hint"><span>документи</span><div class="scroll-dot"></div></div>
+</section>
+
+<main class="hub">
+  <p class="hub-eyebrow">Система бренду</p>
+
+  <div class="hub-section">
+    <div class="section-label">Документи бренду</div>
+    <div class="grid">
+
+      <a class="card" href="PEND_concept_guideline_full.html" target="_self">
+        <div>
+          <div class="card-num">01 <svg class="card-kh" viewBox="0 0 40 64"><use href="#kh"/></svg></div>
+          <div class="card-tag">Основа</div>
+          <div class="card-title">Концепція</div>
+          <div class="card-desc">Філософія Дому, позиціонування, аудиторія, атмосфера, персонаж Пана P.</div>
+        </div>
+        <div class="card-action"><span class="card-action-line"></span>Відкрити</div>
+      </a>
+
+      <a class="card" href="PEND_brand_guideline_technical.html" target="_self">
+        <div>
+          <div class="card-num">02 <svg class="card-kh" viewBox="0 0 40 64"><use href="#kh"/></svg></div>
+          <div class="card-tag">Ідентичність</div>
+          <div class="card-title">Бренд-гайдлайн</div>
+          <div class="card-desc">Логотип, замкова щілина, кольори, шрифти, правила застосування.</div>
+        </div>
+        <div class="card-action"><span class="card-action-line"></span>Відкрити</div>
+      </a>
+
+      <a class="card" href="PEND_tone_of_voice_contractors_full.html" target="_self">
+        <div>
+          <div class="card-num">03 <svg class="card-kh" viewBox="0 0 40 64"><use href="#kh"/></svg></div>
+          <div class="card-tag">Голос · Зовнішній</div>
+          <div class="card-title">Tone of Voice<br>для підрядників</div>
+          <div class="card-desc">Правила комунікації для дизайнерів, копірайтерів, SMM-фахівців.</div>
+        </div>
+        <div class="card-action"><span class="card-action-line"></span>Відкрити</div>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="hub-separator"></div>
+
+  <div class="hub-section">
+    <div class="section-label">Матеріали</div>
+    <div class="grid">
+      <a class="card kit wide" href="PEND_brand_kit_v1.zip" download>
+        <div class="card-num"><svg style="width:24px;height:38px;opacity:0.5;flex-shrink:0" viewBox="0 0 40 64"><use href="#kh-brass"/></svg></div>
+        <div class="card-body">
+          <div class="card-tag">Архів</div>
+          <div class="card-title">Brand Kit</div>
+          <div class="card-desc">Логотип у всіх форматах, кольорові палітри, шрифти, замкова щілина.</div>
+        </div>
+        <div class="card-action"><span class="card-action-line"></span>Завантажити</div>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-logo">P<span class="dot" style="width:.08em;height:.08em;top:.42em;margin:0 .1em">.</span>E<span class="dot" style="width:.08em;height:.08em;top:.42em;margin:0 .1em">.</span>N<span class="dot" style="width:.08em;height:.08em;top:.42em;margin:0 .1em">.</span>D <span style="font-size:10px;letter-spacing:.4em;color:var(--brass);margin-left:10px;font-family:'Raleway'">house</span></div>
+  <div class="foot-sep"></div>
+  <div class="foot-note">Brand System · Kyiv · 2025</div>
+</footer>
+</body>
+</html>
